@@ -10,7 +10,10 @@
     - name: Install neovim nightly
       become: true
       ansible.builtin.dnf:
-        name: neovim
+        name:
+          - nodejs
+          - npm
+          - neovim
         state: present
     - name: Install packer
       ansible.builtin.git:
