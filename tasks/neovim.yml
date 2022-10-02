@@ -7,13 +7,15 @@
       become: true
       community.general.copr:
         name: agriffis/neovim-nightly
-    - name: Install neovim nightly
+    - name: Install neovim nightly and plugin dependencies
       become: true
       ansible.builtin.dnf:
         name:
           - nodejs
           - npm
           - neovim
+          - java-latest-openjdk-devel
+          - java-latest-openjdk
         state: present
     - name: Install packer
       ansible.builtin.git:
