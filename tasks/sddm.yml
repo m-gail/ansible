@@ -1,0 +1,22 @@
+- name: Install sddm
+  tags:
+    - sddm
+  block:
+    - name: Install sddm
+      become: true
+      ansible.builtin.dnf:
+        name:
+          - sddm
+          - "@base-x"
+        state: present
+    - name: Enable sddm
+      become: true
+      ansible.builtin.systemd:
+        name: sddm
+        enabled: yes
+    - name: Change default target to graphical.target
+      become: yes
+      file:
+        src: /usr/lib/systemd/system/graphical.target
+        dest: /etc/systemd/system/default.target
+        state: link
