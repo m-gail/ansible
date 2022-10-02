@@ -2,7 +2,7 @@
   tags:
     - sway
   block:
-    - name: Install awesome
+    - name: Install sway
       become: true
       ansible.builtin.dnf:
         name:
