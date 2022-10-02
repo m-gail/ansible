@@ -1,6 +1,7 @@
 - hosts: localhost
   tasks:
     - import_tasks: tasks/dotfiles.yml
+    - import_tasks: tasks/cli-tools.yml
     - import_tasks: tasks/zsh.yml
     - import_tasks: tasks/neovim.yml
     - import_tasks: tasks/awesome.yml
