@@ -1,0 +1,17 @@
+- name: Setup python
+  tags:
+    - dev
+    - javascript
+  block:
+    - name: Install node
+      become: true
+      ansible.builtin.dnf:
+        name:
+          - nodejs
+          - yarnpkg
+          - npm
+        state: present
+    - name: Clone nvm
+      ansible.builtin.git:
+        repo: https://github.com/nvm-sh/nvm
+        dest: "{{ lookup('env', 'HOME') }}/.nvm"

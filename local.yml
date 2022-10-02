@@ -1,0 +1,12 @@
+- hosts: localhost
+  tasks:
+    - import_tasks: tasks/dotfiles.yml
+    - import_tasks: tasks/zsh.yml
+    - import_tasks: tasks/neovim.yml
+    - import_tasks: tasks/awesome.yml
+    - import_tasks: tasks/sway.yml
+    - import_tasks: tasks/fonts.yml
+    - import_tasks: tasks/lightdm.yml
+    - import_tasks: tasks/python.yml
+    - import_tasks: tasks/javascript.yml
+    - import_tasks: tasks/java.yml

@@ -1,0 +1,20 @@
+- name: Setup python
+  tags:
+    - dev
+    - python
+  block:
+    - name: Install python dependencies
+      become: true
+      ansible.builtin.dnf:
+        name:
+          - python3
+          - python3-pip
+          - pipenv
+          - poetry
+        state: present
+    - name: Clone pyenv
+      ansible.builtin.git:
+        repo: https://github.com/pyenv/pyenv.git
+        dest: "{{ lookup('env', 'HOME') }}/.pyenv"
+    - name: pyenv optimizations
+      shell: cd ~/.pyenv && src/configure && make -C src

@@ -1,0 +1,29 @@
+- name: Setup zsh
+  vars:
+    the_user: "{{ ansible_user_id }}"
+  tags:
+    - cli
+    - zsh
+  block:
+    - name: Install zsh and config dependencies
+      become: true
+      ansible.builtin.dnf:
+        name:
+          - zsh
+          - starship
+          - exa
+          - trash-cli
+        state: present
+    - name: Install syntax highlighting
+      ansible.builtin.git:
+        repo: https://github.com/zsh-users/zsh-syntax-highlighting
+        dest: "{{ lookup('env', 'HOME') }}/.config/zsh/plugins/zsh-syntax-highlighting"
+    - name: Install autosuggestions
+      ansible.builtin.git:
+        repo: https://github.com/zsh-users/zsh-autosuggestions
+        dest: "{{ lookup('env', 'HOME') }}/.config/zsh/plugins/zsh-autosuggestions"
+    - name: Change shell to zsh
+      become: yes
+      user:
+        name: "{{ the_user }}"
+        shell: /bin/zsh

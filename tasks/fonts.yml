@@ -1,0 +1,31 @@
+- name: Install fonts
+  tags:
+    - desktop
+    - fonts
+  block:
+    - name: Install unzip
+      become: true
+      ansible.builtin.dnf:
+        name: unzip
+        state: present
+    - name: Create JetBrainsMono directory
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/.local/share/fonts/JetBrainsMonoNF"
+        state: directory
+    - name: Create FontAwesome directory
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/.local/share/fonts/FontAwesome"
+        state: directory
+    - name: Install JetBrainsMono
+      ansible.builtin.unarchive:
+        remote_src: true
+        src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+        dest: "{{ lookup('env', 'HOME') }}/.local/share/fonts/JetBrainsMonoNF/"
+    - name: Install FontAwesome
+      ansible.builtin.unarchive:
+        remote_src: true
+        src: https://use.fontawesome.com/releases/v6.1.1/fontawesome-free-6.1.1-desktop.zip
+        dest: "{{ lookup('env', 'HOME') }}/.local/share/fonts/FontAwesome/"
+    - name: Update font cache
+      shell: fc-cache -fv
+

@@ -1,0 +1,38 @@
+- name: Setup neovim
+  tags:
+    - cli
+    - neovim
+  block:
+    - name: Enable Copr for neovim nightly
+      become: true
+      community.general.copr:
+        name: agriffis/neovim-nightly
+    - name: Install neovim nightly
+      become: true
+      ansible.builtin.dnf:
+        name: neovim
+        state: present
+    - name: Install packer
+      ansible.builtin.git:
+        repo: https://github.com/wbthomason/packer.nvim
+        dest: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    - name: Run PackerSync
+      shell: nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+    - name: Create SourcePackages directory
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/SourcePackages"
+        state: directory
+    - name: Clone vscode-java-test
+      ansible.builtin.git:
+        repo: https://github.com/microsoft/vscode-java-test
+        dest: "{{ lookup('env', 'HOME') }}/SourcePackages/vscode-java-test"
+    - name: Install vscode-java-test
+      shell:
+        cmd: cd $HOME/SourcePackages/vscode-java-test && npm install && npm run build-plugin
+    - name: Clone java-debug
+      ansible.builtin.git:
+        repo: https://github.com/microsoft/java-debug
+        dest: "{{ lookup('env', 'HOME') }}/SourcePackages/java-debug"
+    - name: Install java-debug
+      shell:
+        cmd: cd $HOME/SourcePackages/java-debug && ./mvnw clean install

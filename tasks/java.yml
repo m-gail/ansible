@@ -1,0 +1,11 @@
+- name: Setup java
+  tags:
+    - dev
+    - java
+  block:
+    - name: Download SDKMAN installer
+      ansible.builtin.get_url:
+        url: "https://get.sdkman.io?rcupdate=false"
+        dest: /tmp/sdkman.bash
+    - name: Install SDKMAN
+      ansible.builtin.shell: bash /tmp/sdkman.bash

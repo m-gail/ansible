@@ -1,0 +1,16 @@
+- name: Install sway
+  tags:
+    - sway
+  block:
+    - name: Install awesome
+      become: true
+      ansible.builtin.dnf:
+        name:
+          - sway
+          - swaylock
+          - waybar
+          - wofi
+          - kitty
+          - dunst
+          - flameshot
+        state: present

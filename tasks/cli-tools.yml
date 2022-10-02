@@ -1,0 +1,34 @@
+- name: Setup cli tools
+  tags:
+    - cli
+    - cli-tools
+  block:
+    - name: Enable Copr for lazygit
+      become: true
+      community.general.copr:
+        name: atim/lazygit
+    - name: Install lazygit
+      become: true
+      ansible.builtin.dnf:
+        name: lazygit
+        state: present
+    - name: Create SourcePackages directory
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/SourcePackages"
+        state: directory
+    - name: Install fzf
+      become: true
+      ansible.builtin.dnf:
+        name:
+          - fzf
+          - python3
+          - python3-pip
+        state: present
+    - name: Clone findproject
+      ansible.builtin.git:
+        repo: https://gitlab.com/ihciM/findproject
+        dest: "{{ lookup('env', 'HOME') }}/SourcePackages/findproject"
+    - name: Install findproject
+      ansible.builtin.pip:
+        name: "{{ lookup('env', 'HOME') }}/SourcePackages/findproject"
+        editable: true
