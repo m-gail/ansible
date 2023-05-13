@@ -15,4 +15,5 @@
           - rofi
           - flameshot
           - xrandr
+          - network-manager-applet
         state: present
