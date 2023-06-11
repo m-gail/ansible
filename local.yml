@@ -12,3 +12,5 @@
     - import_tasks: tasks/python.yml
     - import_tasks: tasks/javascript.yml
     - import_tasks: tasks/java.yml
+    - import_tasks: tasks/tmux.yml
+    - import_tasks: tasks/eww.yml

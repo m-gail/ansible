@@ -1,0 +1,11 @@
+- name: Setup tmux
+  tags:
+    - cli
+    - tmux
+  block:
+    - name: Install tmux
+      become: true
+      ansible.builtin.dnf:
+        name:
+          - tmux
+        state: present

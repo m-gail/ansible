@@ -1,0 +1,21 @@
+- name: Setup cli tools
+  tags:
+    - desktop
+    - eww
+  block:
+    - name: Create SourcePackages directory
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/SourcePackages"
+        state: directory
+    - name: Clone eww
+      ansible.builtin.git:
+        repo: https://github.com/elkowar/eww
+        dest: "{{ lookup('env', 'HOME') }}/SourcePackages/eww"
+    - name: Build eww
+      shell:
+        cmd: cargo build --release --no-default-features --features x11
+        chdir: "{{ lookup('env', 'HOME') }}/SourcePackages/eww"
+    - name: Make eww executable
+      file:
+        dest: "{{ lookup('env', 'HOME') }}/SourcePackages/eww/target/release/eww"
+        mode: +x

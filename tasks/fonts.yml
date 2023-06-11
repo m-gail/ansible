@@ -19,7 +19,7 @@
     - name: Install JetBrainsMono
       ansible.builtin.unarchive:
         remote_src: true
-        src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
+        src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip
         dest: "{{ lookup('env', 'HOME') }}/.local/share/fonts/JetBrainsMonoNF/"
     - name: Install FontAwesome
       ansible.builtin.unarchive:
