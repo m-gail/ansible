@@ -5,6 +5,10 @@
     - cli
     - zsh
   block:
+    - name: Enable Copr for starship
+      become: true
+      community.general.copr:
+        name: atim/starship
     - name: Install zsh and config dependencies
       become: true
       ansible.builtin.dnf:
