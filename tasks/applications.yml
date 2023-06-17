@@ -1,0 +1,23 @@
+- name: Install desktop apps
+  tags:
+    - desktop
+    - applications
+  block:
+    - name: Install desktop apps
+      become: true
+      ansible.builtin.dnf:
+        name:
+          - discord
+          - nextcloud
+          - firefox
+          - gimp
+          - lxappearance
+          - Thunar
+        state: present
+    - name: Install flatpaks
+      community.general.flatpak:
+        name:
+          - com.spotify.Client
+          - com.github.tchx84.Flatseal
+          - org.onlyoffice.desktopeditors
+        state: present

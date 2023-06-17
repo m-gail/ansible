@@ -1,5 +1,6 @@
 - name: Install sway
   tags:
+    - desktop
     - sway
   block:
     - name: Install sway

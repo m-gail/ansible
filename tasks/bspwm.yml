@@ -1,0 +1,22 @@
+- name: Install bspwm
+  tags:
+    - desktop
+    - bspwm
+  block:
+    - name: Install bspwm
+      become: true
+      ansible.builtin.dnf:
+        name:
+          - bspwm
+          - sxhkd
+          - polybar
+          - dunst
+          - kitty
+          - picom
+          - rofi
+          - flameshot
+          - xrandr
+          - network-manager-applet
+          - pavucontrol
+          - blueman
+        state: present
