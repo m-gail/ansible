@@ -17,6 +17,7 @@
       ansible.builtin.systemd:
         name: lightdm
         enabled: yes
+        force: true
     - name: Change default target to graphical.target
       become: yes
       file:

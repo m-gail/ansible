@@ -1,6 +1,7 @@
 - name: Install dotfiles
   tags:
     - cli
+    - desktop
     - dotfiles
   block:
     - name: Install stow

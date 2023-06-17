@@ -1,0 +1,12 @@
+- name: Setup rust
+  tags:
+    - cli
+    - dev
+    - rust
+  block:
+    - name: Download rustup installer
+      ansible.builtin.get_url:
+        url: "https://sh.rustup.rs"
+        dest: /tmp/rustup.bash
+    - name: Install rustup
+      ansible.builtin.shell: bash /tmp/rustup.bash
