@@ -20,12 +20,6 @@
           - java-latest-openjdk-devel
           - java-latest-openjdk
         state: present
-    - name: Install packer
-      ansible.builtin.git:
-        repo: https://github.com/wbthomason/packer.nvim
-        dest: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
-    - name: Run PackerSync
-      shell: nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
     - name: Create SourcePackages directory
       ansible.builtin.file:
         path: "{{ lookup('env', 'HOME') }}/SourcePackages"
