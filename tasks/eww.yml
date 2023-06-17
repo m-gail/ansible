@@ -3,6 +3,18 @@
     - desktop
     - eww
   block:
+    - name: Install eww dependencies
+      become: true
+      ansible.builtin.dnf:
+        name:
+          - gtk3
+          - pango
+          - gdk-pixbuf2
+          - cairo
+          - glib2
+          - libgcc
+          - glibc
+        state: present
     - name: Create SourcePackages directory
       ansible.builtin.file:
         path: "{{ lookup('env', 'HOME') }}/SourcePackages"
