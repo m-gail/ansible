@@ -1,4 +1,4 @@
-- name: Setup cli tools
+- name: Install eww
   tags:
     - desktop
     - eww
@@ -7,13 +7,13 @@
       become: true
       ansible.builtin.dnf:
         name:
-          - gtk3
-          - pango
-          - gdk-pixbuf2
-          - cairo
-          - glib2
+          - gtk3-devel
+          - pango-devel
+          - gdk-pixbuf2-devel
+          - cairo-devel
+          - glib2-devel
           - libgcc
-          - glibc
+          - glibc-devel
         state: present
     - name: Create SourcePackages directory
       ansible.builtin.file:
@@ -31,3 +31,8 @@
       file:
         dest: "{{ lookup('env', 'HOME') }}/SourcePackages/eww/target/release/eww"
         mode: +x
+    - name: Link to local bin
+      file:
+        src: "{{ lookup('env', 'HOME') }}/SourcePackages/eww/target/release/eww"
+        dest: "{{ lookup('env', 'HOME') }}/.local/bin/eww"
+        state: link
