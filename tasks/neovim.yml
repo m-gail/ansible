@@ -12,6 +12,8 @@
       ansible.builtin.dnf:
         name:
           - nodejs
+          - gcc
+          - gcc-c++
           - npm
           - neovim
           - java-latest-openjdk-devel
@@ -31,9 +33,12 @@
       ansible.builtin.git:
         repo: https://github.com/microsoft/vscode-java-test
         dest: "{{ lookup('env', 'HOME') }}/SourcePackages/vscode-java-test"
+    - name: Install jdk version
+      shell:
+        cmd: source $HOME/.sdkman/bin/sdkman-init.sh && yes n | sdk install java 17.0.7-tem
     - name: Install vscode-java-test
       shell:
-        cmd: cd $HOME/SourcePackages/vscode-java-test && npm install && npm run build-plugin
+        cmd: source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 17.0.7-tem && cd $HOME/SourcePackages/vscode-java-test && npm install && npm run build-plugin
     - name: Clone java-debug
       ansible.builtin.git:
         repo: https://github.com/microsoft/java-debug

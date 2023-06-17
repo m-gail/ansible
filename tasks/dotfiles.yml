@@ -10,7 +10,7 @@
         state: present
     - name: Clone dotfiles
       ansible.builtin.git:
-        repo: https://gitlab.com/ihciM/dotfiles
+        repo: https://github.com/m-gail/dotfiles
         dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
     - name: Stow dotfiles
       shell: cd $HOME/.dotfiles && stow */

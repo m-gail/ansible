@@ -26,7 +26,7 @@
         state: present
     - name: Clone findproject
       ansible.builtin.git:
-        repo: https://gitlab.com/ihciM/findproject
+        repo: https://github.com/m-gail/findproject
         dest: "{{ lookup('env', 'HOME') }}/SourcePackages/findproject"
     - name: Install findproject
       ansible.builtin.pip:

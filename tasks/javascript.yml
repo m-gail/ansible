@@ -1,5 +1,6 @@
-- name: Setup python
+- name: Setup javascript
   tags:
+    - cli
     - dev
     - javascript
   block:

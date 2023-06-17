@@ -1,5 +1,7 @@
 - hosts: localhost
   tasks:
+    - import_tasks: tasks/javascript.yml
+    - import_tasks: tasks/java.yml
     - import_tasks: tasks/dotfiles.yml
     - import_tasks: tasks/cli-tools.yml
     - import_tasks: tasks/zsh.yml
@@ -10,7 +12,5 @@
     - import_tasks: tasks/lightdm.yml
     - import_tasks: tasks/sddm.yml
     - import_tasks: tasks/python.yml
-    - import_tasks: tasks/javascript.yml
-    - import_tasks: tasks/java.yml
     - import_tasks: tasks/tmux.yml
     - import_tasks: tasks/eww.yml
