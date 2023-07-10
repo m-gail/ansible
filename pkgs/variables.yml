@@ -12,7 +12,7 @@
         file: debian.yml
         name: pkgs
       when: ansible_facts['distribution'] == "Debian"
-    - name: Include Fedora variables
+    - name: Include Void variables
       ansible.builtin.include_vars:
         file: void.yml
         name: pkgs
