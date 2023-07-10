@@ -1,5 +1,6 @@
 - hosts: localhost
   tasks:
+    - import_tasks: pkgs/variables.yml
     - import_tasks: tasks/javascript.yml
     - import_tasks: tasks/java.yml
     - import_tasks: tasks/rust.yml

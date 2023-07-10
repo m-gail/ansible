@@ -1,0 +1,9 @@
+neovim:
+  - nodejs
+  - gcc
+  - gcc-c++
+  - golang
+  - npm
+  - neovim
+  - java-latest-openjdk-devel
+  - java-latest-openjdk

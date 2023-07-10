@@ -1,0 +1,9 @@
+neovim:
+  - nodejs
+  - gcc
+  - g++
+  - golang
+  - npm
+  - neovim
+  - openjdk-22-jdk
+  - openjdk-22-jre

@@ -32,3 +32,9 @@
       ansible.builtin.pip:
         name: "{{ lookup('env', 'HOME') }}/SourcePackages/findproject"
         editable: true
+    - name: Install more CLI-Tools
+      become: true
+      ansible.builtin.dnf:
+        name:
+          - proxychains-ng
+        state: present

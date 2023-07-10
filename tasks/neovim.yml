@@ -7,18 +7,11 @@
       become: true
       community.general.copr:
         name: agriffis/neovim-nightly
+      when: ansible_facts['distribution'] == "Fedora"
     - name: Install neovim nightly and plugin dependencies
       become: true
-      ansible.builtin.dnf:
-        name:
-          - nodejs
-          - gcc
-          - gcc-c++
-          - golang
-          - npm
-          - neovim
-          - java-latest-openjdk-devel
-          - java-latest-openjdk
+      ansible.builtin.package:
+        name: "{{ pkgs.neovim }}"
         state: present
     - name: Create SourcePackages directory
       ansible.builtin.file:

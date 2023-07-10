@@ -1,0 +1,7 @@
+neovim:
+  - nodejs
+  - gcc
+  - go
+  - neovim
+  - openjdk
+  - openjdk-jre
