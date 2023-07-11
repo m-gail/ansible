@@ -8,3 +8,16 @@ neovim:
 greetd:
   - greetd
   - tuigreet
+bspwm:
+  - bspwm
+  - sxhkd
+  - polybar
+  - dunst
+  - kitty
+  - picom
+  - rofi
+  - flameshot
+  - xrandr
+  - network-manager-applet
+  - pavucontrol
+  - blueman

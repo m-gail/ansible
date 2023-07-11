@@ -5,18 +5,6 @@
   block:
     - name: Install bspwm
       become: true
-      ansible.builtin.dnf:
-        name:
-          - bspwm
-          - sxhkd
-          - polybar
-          - dunst
-          - kitty
-          - picom
-          - rofi
-          - flameshot
-          - xrandr
-          - network-manager-applet
-          - pavucontrol
-          - blueman
+      ansible.builtin.package:
+        name: "{{ pkgs.bspwm }}"
         state: present
