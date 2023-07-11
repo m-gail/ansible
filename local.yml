@@ -19,3 +19,4 @@
     - import_tasks: tasks/tmux.yml
     - import_tasks: tasks/eww.yml
     - import_tasks: tasks/applications.yml
+    - import_tasks: tasks/wallpapers.yml
