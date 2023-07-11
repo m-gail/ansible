@@ -21,3 +21,7 @@ bspwm:
   - network-manager-applet
   - pavucontrol
   - blueman
+stow:
+  - stow
+unzip:
+  - unzip

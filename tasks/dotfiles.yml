@@ -6,8 +6,8 @@
   block:
     - name: Install stow
       become: true
-      ansible.builtin.dnf:
-        name: stow
+      ansible.builtin.package:
+        name: "{{ pkgs.stow }}"
         state: present
     - name: Clone dotfiles
       ansible.builtin.git:

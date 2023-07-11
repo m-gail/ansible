@@ -5,8 +5,8 @@
   block:
     - name: Install unzip
       become: true
-      ansible.builtin.dnf:
-        name: unzip
+      ansible.builtin.package:
+        name: "{{ pkgs.unzip }}"
         state: present
     - name: Create JetBrainsMono directory
       ansible.builtin.file:
