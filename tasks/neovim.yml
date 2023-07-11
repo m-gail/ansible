@@ -24,9 +24,13 @@
     - name: Install jdk version
       shell:
         cmd: source $HOME/.sdkman/bin/sdkman-init.sh && yes n | sdk install java 17.0.7-tem
+      args:
+        executable: /bin/bash
     - name: Install vscode-java-test
       shell:
         cmd: source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 17.0.7-tem && cd $HOME/SourcePackages/vscode-java-test && npm install && npm run build-plugin
+      args:
+        executable: /bin/bash
     - name: Clone java-debug
       ansible.builtin.git:
         repo: https://github.com/microsoft/java-debug
@@ -34,3 +38,5 @@
     - name: Install java-debug
       shell:
         cmd: source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 17.0.7-tem && cd $HOME/SourcePackages/java-debug && ./mvnw clean install
+      args:
+        executable: /bin/bash

@@ -5,3 +5,6 @@ neovim:
   - neovim
   - openjdk
   - openjdk-jre
+greetd:
+  - greetd
+  - tuigreet

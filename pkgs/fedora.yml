@@ -7,3 +7,6 @@ neovim:
   - neovim
   - java-latest-openjdk-devel
   - java-latest-openjdk
+greetd:
+  - greetd
+  - tuigreet

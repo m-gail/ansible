@@ -24,3 +24,4 @@
         src: /usr/lib/systemd/system/graphical.target
         dest: /etc/systemd/system/default.target
         state: link
+  when: ansible_facts['distribution'] != "Void"
