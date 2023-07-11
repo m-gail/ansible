@@ -9,14 +9,11 @@
       become: true
       community.general.copr:
         name: atim/starship
+      when: ansible_facts['distribution'] == "Fedora"
     - name: Install zsh and config dependencies
       become: true
-      ansible.builtin.dnf:
-        name:
-          - zsh
-          - starship
-          - exa
-          - trash-cli
+      ansible.builtin.package:
+        name: "{{ pkgs.zsh }}"
         state: present
     - name: Install syntax highlighting
       ansible.builtin.git:

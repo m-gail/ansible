@@ -27,3 +27,8 @@ stow:
   - stow
 unzip:
   - unzip
+zsh:
+  - zsh
+  - starship
+  - exa
+  - trash-cli

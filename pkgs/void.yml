@@ -21,7 +21,13 @@ bspwm:
   - network-manager-applet
   - pavucontrol
   - blueman
+  - xorg
 stow:
   - stow
 unzip:
   - unzip
+zsh:
+  - zsh
+  - starship
+  - exa
+  - trash-cli
