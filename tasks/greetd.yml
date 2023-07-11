@@ -19,5 +19,4 @@
       community.general.runit:
         name: greetd
         enabled: yes
-        force: true
       when: ansible_facts['distribution'] == "Void"
