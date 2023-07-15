@@ -32,3 +32,11 @@ zsh:
   - starship
   - exa
   - trash-cli
+tmux:
+  - tmux
+cli_tools:
+  - proxychains-ng
+  - fzf
+  - python3
+  - python3-pip
+  - lazygit

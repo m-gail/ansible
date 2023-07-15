@@ -1,0 +1,12 @@
+- name: Install dotfiles
+  block:
+    - name: Install stow
+      become: true
+      ansible.builtin.package:
+        name: "{{ pkgs.stow }}"
+        state: present
+    - name: Stow dotfiles
+      ansible.builtin.command:
+        argv: "{{ ['stow'] + directories }}"
+      args:
+        chdir: "{{ lookup('env', 'HOME') }}/.dotfiles"

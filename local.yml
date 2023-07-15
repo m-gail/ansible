@@ -4,7 +4,6 @@
     - import_tasks: tasks/javascript.yml
     - import_tasks: tasks/java.yml
     - import_tasks: tasks/rust.yml
-    - import_tasks: tasks/dotfiles.yml
     - import_tasks: tasks/cli-tools.yml
     - import_tasks: tasks/zsh.yml
     - import_tasks: tasks/neovim.yml

@@ -1,11 +1,13 @@
 neovim:
   - nodejs
+  - cmake
   - gcc
   - g++
   - golang
   - npm
   - openjdk-22-jdk
   - openjdk-22-jre
+  - ripgrep
 bspwm:
   - bspwm
   - sxhkd
@@ -16,7 +18,7 @@ bspwm:
   - rofi
   - flameshot
   - x11-xserver-utils
-#  - network-manager-applet
+  - network-manager-gnome
   - pavucontrol
   - blueman
   - feh
@@ -26,3 +28,12 @@ zsh:
   - zsh
   - exa
   - trash-cli
+stow:
+  - stow
+tmux:
+  - tmux
+cli_tools:
+  - proxychains4
+  - fzf
+  - python3
+  - python3-pip

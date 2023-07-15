@@ -8,3 +8,11 @@
       ansible.builtin.package:
         name: "{{ pkgs.bspwm }}"
         state: present
+    - include: ../lib/dotfiles.yml
+      vars:
+        directories:
+          - bspwm
+          - rofi
+          - kitty
+          - picom
+          - dunst

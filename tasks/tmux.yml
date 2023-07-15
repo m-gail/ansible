@@ -5,7 +5,10 @@
   block:
     - name: Install tmux
       become: true
-      ansible.builtin.dnf:
-        name:
-          - tmux
+      ansible.builtin.package:
+        name: "{{ pkgs.tmux }}"
         state: present
+    - include: ../lib/dotfiles.yml
+      vars:
+        directories:
+          - tmux

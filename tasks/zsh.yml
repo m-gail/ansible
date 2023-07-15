@@ -41,3 +41,7 @@
       user:
         name: "{{ the_user }}"
         shell: /bin/zsh
+    - include: ../lib/dotfiles.yml
+      vars:
+        directories:
+          - zsh
