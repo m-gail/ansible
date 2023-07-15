@@ -4,6 +4,25 @@ neovim:
   - g++
   - golang
   - npm
-  - neovim
   - openjdk-22-jdk
   - openjdk-22-jre
+bspwm:
+  - bspwm
+  - sxhkd
+  - polybar
+  - dunst
+  - kitty
+  - picom
+  - rofi
+  - flameshot
+  - x11-xserver-utils
+#  - network-manager-applet
+  - pavucontrol
+  - blueman
+  - feh
+unzip:
+  - unzip
+zsh:
+  - zsh
+  - exa
+  - trash-cli
