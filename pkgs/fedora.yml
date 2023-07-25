@@ -40,3 +40,9 @@ cli_tools:
   - python3
   - python3-pip
   - lazygit
+desktop_apps:
+  - nextcloud
+  - firefox
+  - gimp
+  - lxappearance
+  - Thunar

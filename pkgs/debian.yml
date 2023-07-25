@@ -37,3 +37,9 @@ cli_tools:
   - fzf
   - python3
   - python3-pip
+desktop_apps:
+  - nextcloud-desktop
+  - firefox
+  - gimp
+  - lxappearance
+  - thunar

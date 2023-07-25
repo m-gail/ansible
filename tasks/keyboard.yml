@@ -1,0 +1,19 @@
+- name: Configure keyboard
+  tags:
+    - desktop
+    - keyboard
+  block:
+    - name: Set keyboard to us altgr-intl caps:escape
+      become: true
+      ansible.builtin.copy:
+        src: ../files/keyboard
+        dest: /etc/default/keyboard
+        mode: "0644"
+        owner: root
+        group: root
+        force: true
+    - name: Reload service
+      become: true
+      ansible.builtin.service:
+        state: restarted
+        name: keyboard-setup
