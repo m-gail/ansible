@@ -46,3 +46,11 @@ desktop_apps:
   - gimp
   - lxappearance
   - Thunar
+eww:
+  - gtk3-devel
+  - pango-devel
+  - gdk-pixbuf2-devel
+  - cairo-devel
+  - glib2-devel
+  - libgcc
+  - glibc-devel

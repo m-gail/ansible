@@ -25,6 +25,7 @@ x_wm_common:
   - pavucontrol
   - blueman
   - feh
+  - xclip
 unzip:
   - unzip
 zsh:
@@ -50,3 +51,11 @@ virtualization:
   - qemu-system
   - libvirt-daemon-system
   - virt-manager
+eww:
+  - libgtk-3-dev
+  - libpango1.0-dev
+  - libgdk-pixbuf2.0-dev
+  - libcairo2-dev
+  - libcairo-gobject2
+  - libglib2.0-dev
+  - libgcc-12-dev
