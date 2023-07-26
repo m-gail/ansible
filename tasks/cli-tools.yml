@@ -34,7 +34,16 @@
       ansible.builtin.git:
         repo: https://github.com/m-gail/findproject
         dest: "{{ lookup('env', 'HOME') }}/SourcePackages/findproject"
-    - name: Install findproject
-      ansible.builtin.pip:
-        name: "{{ lookup('env', 'HOME') }}/SourcePackages/findproject"
-        editable: true
+    - name: Build findproject
+      shell:
+        cmd: "python3 -m zipapp findproject -p '/usr/bin/env python3' -o $HOME/.local/bin/findproject"
+        chdir: "{{ lookup('env', 'HOME') }}/SourcePackages/findproject"
+    - name: Link fp_tmux
+      file:
+        src: "{{ lookup('env', 'HOME') }}/SourcePackages/findproject/scripts/fp_tmux"
+        dest: "{{ lookup('env', 'HOME') }}/.local/bin/fp_tmux"
+        state: link
+    - include: ../lib/dotfiles.yml
+      vars:
+        directories:
+          - findproject

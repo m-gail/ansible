@@ -1,0 +1,18 @@
+- name: Setup virtualization
+  tags:
+    - virtualization
+  vars:
+    the_user: ""
+  block:
+    - name: Install virtualization requirements
+      become: true
+      ansible.builtin.package:
+        name: "{{ pkgs.virtualization }}"
+        state: present
+    - name: Add user to libvirt
+      become: true
+      ansible.builtin.user:
+        name: "{{ ansible_user_id }}"
+        append: true
+        groups:
+          - libvirt

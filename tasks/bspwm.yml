@@ -6,7 +6,7 @@
     - name: Install bspwm
       become: true
       ansible.builtin.package:
-        name: "{{ pkgs.bspwm }}"
+        name: "{{ pkgs.bspwm + pkgs.x_wm_common }}"
         state: present
     - include: ../lib/dotfiles.yml
       vars:

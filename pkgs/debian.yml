@@ -12,6 +12,7 @@ bspwm:
   - bspwm
   - sxhkd
   - polybar
+x_wm_common:
   - dunst
   - kitty
   - picom
@@ -19,6 +20,8 @@ bspwm:
   - flameshot
   - x11-xserver-utils
   - network-manager-gnome
+  - network-manager-openvpn
+  - network-manager-openvpn-gnome
   - pavucontrol
   - blueman
   - feh
@@ -43,3 +46,7 @@ desktop_apps:
   - gimp
   - lxappearance
   - thunar
+virtualization:
+  - qemu-system
+  - libvirt-daemon-system
+  - virt-manager

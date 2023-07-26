@@ -20,3 +20,4 @@
     - import_tasks: tasks/applications.yml
     - import_tasks: tasks/wallpapers.yml
     - import_tasks: tasks/keyboard.yml
+    - import_tasks: tasks/virtualization.yml
