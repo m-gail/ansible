@@ -25,7 +25,8 @@ bspwm:
   - blueman
 stow:
   - stow
-unzip:
+zip:
+  - zip
   - unzip
 zsh:
   - zsh

@@ -26,8 +26,11 @@ x_wm_common:
   - blueman
   - feh
   - xclip
-unzip:
+zip:
+  - zip
   - unzip
+curl:
+  - curl
 zsh:
   - zsh
   - exa

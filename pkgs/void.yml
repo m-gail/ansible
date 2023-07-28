@@ -24,7 +24,8 @@ bspwm:
   - xorg
 stow:
   - stow
-unzip:
+zip:
+  - zip
   - unzip
 zsh:
   - zsh

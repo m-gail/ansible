@@ -3,6 +3,10 @@
     - dev
     - java
   block:
+    - name: Install SDKMAN dependencies
+      ansible.builtin.package:
+        name: "{{ pkgs.zip + pkgs.curl }}"
+        state: present
     - name: Download SDKMAN installer
       ansible.builtin.get_url:
         url: "https://get.sdkman.io?rcupdate=false"

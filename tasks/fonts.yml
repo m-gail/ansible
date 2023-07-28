@@ -3,10 +3,10 @@
     - desktop
     - fonts
   block:
-    - name: Install unzip
+    - name: Install zip
       become: true
       ansible.builtin.package:
-        name: "{{ pkgs.unzip }}"
+        name: "{{ pkgs.zip }}"
         state: present
     - name: Create JetBrainsMono directory
       ansible.builtin.file:
