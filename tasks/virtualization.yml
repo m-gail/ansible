@@ -16,3 +16,6 @@
         append: true
         groups:
           - libvirt
+    - name: Autostart default network
+      become: true
+      shell: virsh net-autostart default
