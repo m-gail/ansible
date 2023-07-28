@@ -1,6 +1,5 @@
 - name: Setup python
   tags:
-    - cli
     - dev
     - python
   block:

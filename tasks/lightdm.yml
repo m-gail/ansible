@@ -1,6 +1,5 @@
 - name: Install lightdm
   tags:
-    - desktop
     - lightdm
   block:
     - name: Install lightdm

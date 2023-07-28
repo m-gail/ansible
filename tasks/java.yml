@@ -1,6 +1,5 @@
 - name: Setup java
   tags:
-    - cli
     - dev
     - java
   block:

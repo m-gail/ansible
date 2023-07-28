@@ -1,6 +1,5 @@
 - name: Setup rust
   tags:
-    - cli
     - dev
     - rust
   block:
