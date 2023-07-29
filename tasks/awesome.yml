@@ -5,15 +5,14 @@
   block:
     - name: Install awesome
       become: true
-      ansible.builtin.dnf:
-        name:
-          - awesome
-          - dunst
-          - kitty
-          - alacritty
-          - picom
-          - rofi
-          - flameshot
-          - xrandr
-          - network-manager-applet
+      ansible.builtin.package:
+        name: "{{ pkgs.awesome + pkgs.x_wm_common }}"
         state: present
+    - include: ../lib/dotfiles.yml
+      vars:
+        directories:
+          - awesome
+          - rofi
+          - kitty
+          - picom
+          - dunst

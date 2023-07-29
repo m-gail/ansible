@@ -14,6 +14,7 @@ bspwm:
   - bspwm
   - sxhkd
   - polybar
+x_wm_common:
   - dunst
   - kitty
   - picom
@@ -23,6 +24,16 @@ bspwm:
   - network-manager-applet
   - pavucontrol
   - blueman
+awesome:
+  - awesome
+sway:
+  - sway
+  - swaylock
+  - waybar
+  - wofi
+  - kitty
+  - dunst
+  - flameshot
 stow:
   - stow
 zip:

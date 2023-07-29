@@ -19,3 +19,7 @@
       ansible.builtin.get_url:
         url: "https://images.pexels.com/photos/1381679/pexels-photo-1381679.jpeg?cs=srgb&dl=pexels-irina-iriser-1381679-scaled.jpg&fm=jpg&w=1280&h=1920"
         dest: "{{ lookup('env', 'HOME') }}/Pictures/Wallpapers/pexels-irina-iriser-1381679-scaled.jpg"
+    - name: Download northernlights wallpaper
+      ansible.builtin.get_url:
+        url: "https://images.pexels.com/photos/11042734/pexels-photo-11042734.jpeg?cs=srgb&dl=pexels-valdemaras-d-11042734.jpg&fm=jpg"
+        dest: "{{ lookup('env', 'HOME') }}/Pictures/Wallpapers/pexels-valdemaras-d-11042734.jpg"

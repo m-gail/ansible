@@ -8,6 +8,7 @@ neovim:
   - openjdk-22-jdk
   - openjdk-22-jre
   - ripgrep
+  - xclip
 bspwm:
   - bspwm
   - sxhkd
@@ -25,7 +26,16 @@ x_wm_common:
   - pavucontrol
   - blueman
   - feh
-  - xclip
+awesome:
+  - awesome
+sway:
+  - sway
+  - swaylock
+  - waybar
+  - wofi
+  - kitty
+  - dunst
+  - flameshot
 zip:
   - zip
   - unzip
@@ -44,6 +54,7 @@ cli_tools:
   - fzf
   - python3
   - python3-pip
+  - nala
 desktop_apps:
   - nextcloud-desktop
   - firefox

@@ -5,13 +5,12 @@
   block:
     - name: Install sway
       become: true
-      ansible.builtin.dnf:
-        name:
+      ansible.builtin.package:
+        name: "{{ pkgs.sway }}"
+        state: present
+    - include: ../lib/dotfiles.yml
+      vars:
+        directories:
           - sway
-          - swaylock
-          - waybar
-          - wofi
           - kitty
           - dunst
-          - flameshot
-        state: present
