@@ -8,6 +8,19 @@
       ansible.builtin.package:
         name: "{{ pkgs.bspwm + pkgs.x_wm_common }}"
         state: present
+    - name: Create SourcePackages directory
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/SourcePackages"
+        state: directory
+    - name: Clone polybar
+      ansible.builtin.git:
+        repo: https://github.com/polybar/polybar
+        dest: "{{ lookup('env', 'HOME') }}/SourcePackages/polybar"
+        recursive: true
+    - name: Build polybar
+      shell:
+        cmd: "mkdir -p build && cd build && cmake .. && make -j$(nproc)"
+        chdir: "{{ lookup('env', 'HOME') }}/SourcePackages/polybar"
     - include: ../lib/dotfiles.yml
       vars:
         directories:
