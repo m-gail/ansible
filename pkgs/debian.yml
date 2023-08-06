@@ -26,6 +26,7 @@ x_wm_common:
   - pavucontrol
   - blueman
   - feh
+  - i3lock
 awesome:
   - awesome
 sway:
