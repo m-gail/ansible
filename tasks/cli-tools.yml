@@ -3,6 +3,14 @@
     - cli
     - cli-tools
   block:
+    - name: Clone delta
+      ansible.builtin.git:
+        repo: https://github.com/dandavison/delta
+        dest: "{{ lookup('env', 'HOME') }}/SourcePackages/delta"
+    - name: Build delta
+      shell:
+        cmd: cargo build --release
+        chdir: "{{ lookup('env', 'HOME') }}/SourcePackages/delta"
     - name: Enable Copr for lazygit
       become: true
       community.general.copr:

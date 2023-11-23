@@ -18,11 +18,16 @@
         path: "{{ lookup('env', 'HOME') }}/.local/bin"
         state: directory
         recurse: true
-    - name: Install latest AppImage on Debian
+    - name: Install v0.9.4 AppImage on Debian
       ansible.builtin.get_url:
-        url: https://github.com/neovim/neovim/releases/download/v0.9.1/nvim.appimage
-        checksum: sha256:262892176e21da0902c4f0b1e027d54d21b4bcae6b0397afccd8a81b476c3055
+        url: https://github.com/neovim/neovim/releases/download/v0.9.4/nvim.appimage
+        checksum: sha256:028cfaaf551d64cbb2f39d15363ed78edb01e2673579b48cb694e3604207d656
         dest: "{{ lookup('env', 'HOME') }}/.local/bin/nvim"
+        mode: "u+x"
+    - name: Install nightly AppImage on Debian
+      ansible.builtin.get_url:
+        url: https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+        dest: "{{ lookup('env', 'HOME') }}/.local/bin/nvim_nightly"
         mode: "u+x"
       when: ansible_facts['distribution'] == "Debian"
     - name: Create SourcePackages directory

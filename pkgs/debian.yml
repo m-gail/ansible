@@ -46,6 +46,7 @@ zsh:
   - zsh
   - exa
   - trash-cli
+  - direnv
 stow:
   - stow
 tmux:
