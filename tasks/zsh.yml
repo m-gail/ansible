@@ -5,24 +5,18 @@
     - cli
     - zsh
   block:
-    - name: Enable Copr for starship
-      become: true
-      community.general.copr:
-        name: atim/starship
-      when: ansible_facts['distribution'] == "Fedora"
-    - name: Download starship for debian
+    - name: Download starship
       become: true
       ansible.builtin.get_url:
-        checksum: sha256:d7269514fa450678790f37d41c691e4a80492b127b861e30e252a6646040b615
-        url: https://github.com/starship/starship/releases/download/v1.15.0/starship-x86_64-unknown-linux-gnu.tar.gz
+        checksum: sha256:bb797f4af36138581cb43d36f432d54312360da21dff4c38545675c7873758ae
+        url: https://github.com/starship/starship/releases/download/v1.16.0/starship-x86_64-unknown-linux-gnu.tar.gz
         dest: /tmp/starship.tar.gz
-    - name: Install starship for Debian
+    - name: Install starship
       become: true
       ansible.builtin.unarchive:
         remote_src: true
         src: /tmp/starship.tar.gz
         dest: "{{ lookup('env', 'HOME') }}/.local/bin"
-      when: ansible_facts['distribution'] == "Debian"
     - name: Install zsh and config dependencies
       become: true
       ansible.builtin.package:

@@ -3,33 +3,22 @@
     - cli
     - neovim
   block:
-    - name: Enable Copr for neovim nightly
-      become: true
-      community.general.copr:
-        name: agriffis/neovim-nightly
-      when: ansible_facts['distribution'] == "Fedora"
-    - name: Install neovim and plugin dependencies
-      become: true
-      ansible.builtin.package:
-        name: "{{ pkgs.neovim }}"
-        state: present
-    - name: Create .local/bin on debian
+    - name: Create .local/bin
       file:
         path: "{{ lookup('env', 'HOME') }}/.local/bin"
         state: directory
         recurse: true
-    - name: Install v0.9.4 AppImage on Debian
+    - name: Install v0.9.4 AppImage
       ansible.builtin.get_url:
         url: https://github.com/neovim/neovim/releases/download/v0.9.4/nvim.appimage
         checksum: sha256:028cfaaf551d64cbb2f39d15363ed78edb01e2673579b48cb694e3604207d656
         dest: "{{ lookup('env', 'HOME') }}/.local/bin/nvim"
         mode: "u+x"
-    - name: Install nightly AppImage on Debian
+    - name: Install nightly AppImage
       ansible.builtin.get_url:
         url: https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
         dest: "{{ lookup('env', 'HOME') }}/.local/bin/nvim_nightly"
         mode: "u+x"
-      when: ansible_facts['distribution'] == "Debian"
     - name: Create SourcePackages directory
       ansible.builtin.file:
         path: "{{ lookup('env', 'HOME') }}/SourcePackages"

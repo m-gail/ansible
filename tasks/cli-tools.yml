@@ -3,6 +3,10 @@
     - cli
     - cli-tools
   block:
+    - name: Create SourcePackages directory
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/SourcePackages"
+        state: directory
     - name: Clone delta
       ansible.builtin.git:
         repo: https://github.com/dandavison/delta
@@ -11,33 +15,22 @@
       shell:
         cmd: cargo build --release
         chdir: "{{ lookup('env', 'HOME') }}/SourcePackages/delta"
-    - name: Enable Copr for lazygit
-      become: true
-      community.general.copr:
-        name: atim/lazygit
-      when: ansible_facts['distribution'] == "Fedora"
-    - name: Download lazygit for Debian
+    - name: Download lazygit
       ansible.builtin.get_url:
         checksum: sha256:a992717f728a9a64eb744816dbb0fe0e277205451b94662213a79cb2b08f3fd3
         url: https://github.com/jesseduffield/lazygit/releases/download/v0.38.2/lazygit_0.38.2_Linux_x86_64.tar.gz
         dest: /tmp/lazygit.tar.gz
-      when: ansible_facts['distribution'] == "Debian"
-    - name: Install lazygit for Debian
+    - name: Install lazygit
       become: true
       ansible.builtin.unarchive:
         remote_src: true
         src: /tmp/lazygit.tar.gz
         dest: "{{ lookup('env', 'HOME') }}/.local/bin"
-      when: ansible_facts['distribution'] == "Debian"
     - name: Install CLI-Tools
       become: true
       ansible.builtin.package:
         name: "{{ pkgs.cli_tools }}"
         state: present
-    - name: Create SourcePackages directory
-      ansible.builtin.file:
-        path: "{{ lookup('env', 'HOME') }}/SourcePackages"
-        state: directory
     - name: Clone findproject
       ansible.builtin.git:
         repo: https://github.com/m-gail/findproject

@@ -5,13 +5,8 @@
   block:
     - name: Install python dependencies
       become: true
-      ansible.builtin.dnf:
-        name:
-          - gcc
-          - python3
-          - python3-pip
-          - pipenv
-          - poetry
+      ansible.builtin.package:
+        name: "{{ pkgs.python }}"
         state: present
     - name: Clone pyenv
       ansible.builtin.git:

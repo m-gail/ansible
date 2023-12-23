@@ -2,18 +2,8 @@
   tags:
     - always
   block:
-    - name: Include Fedora variables
-      ansible.builtin.include_vars:
-        file: fedora.yml
-        name: pkgs
-      when: ansible_facts['distribution'] == "Fedora"
     - name: Include Debian variables
       ansible.builtin.include_vars:
         file: debian.yml
         name: pkgs
       when: ansible_facts['distribution'] == "Debian"
-    - name: Include Void variables
-      ansible.builtin.include_vars:
-        file: void.yml
-        name: pkgs
-      when: ansible_facts['distribution'] == "Void"

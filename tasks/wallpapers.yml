@@ -11,6 +11,10 @@
       ansible.builtin.get_url:
         url: "https://images.pexels.com/photos/971360/pexels-photo-971360.jpeg?cs=srgb&dl=pexels-creative-free-stock-971360.jpg&fm=jpg"
         dest: "{{ lookup('env', 'HOME') }}/Pictures/Wallpapers/pexels-creative-free-stock-971360.jpg"
+    - name: Download wallpaper
+      ansible.builtin.get_url:
+        url: "https://images.pexels.com/photos/3337210/pexels-photo-3337210.jpeg?cs=srgb&dl=pexels-mo-eid-3337210.jpg&fm=jpg&w=6240&h=4160"
+        dest: "{{ lookup('env', 'HOME') }}/Pictures/Wallpapers/pexels-mo-eid-3337210.jpg"
     - name: Download rofi wallpaper
       ansible.builtin.get_url:
         url: "https://images.pexels.com/photos/1381679/pexels-photo-1381679.jpeg?cs=srgb&dl=pexels-irina-iriser-1381679.jpg&fm=jpg"

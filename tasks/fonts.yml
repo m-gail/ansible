@@ -19,12 +19,12 @@
     - name: Install JetBrainsMono
       ansible.builtin.unarchive:
         remote_src: true
-        src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip
+        src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
         dest: "{{ lookup('env', 'HOME') }}/.local/share/fonts/JetBrainsMonoNF/"
     - name: Install FontAwesome
       ansible.builtin.unarchive:
         remote_src: true
-        src: https://use.fontawesome.com/releases/v6.1.1/fontawesome-free-6.1.1-desktop.zip
+        src: https://use.fontawesome.com/releases/v6.5.1/fontawesome-free-6.5.1-desktop.zip
         dest: "{{ lookup('env', 'HOME') }}/.local/share/fonts/FontAwesome/"
     - name: Update font cache
       shell: fc-cache -fv

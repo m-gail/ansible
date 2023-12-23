@@ -13,10 +13,3 @@
         name: greetd
         enabled: yes
         force: true
-      when: ansible_facts['distribution'] != "Void"
-    - name: Enable greetd runit
-      become: true
-      community.general.runit:
-        name: greetd
-        enabled: yes
-      when: ansible_facts['distribution'] == "Void"

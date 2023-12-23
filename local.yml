@@ -11,9 +11,7 @@
     - import_tasks: tasks/bspwm.yml
     - import_tasks: tasks/sway.yml
     - import_tasks: tasks/fonts.yml
-    - import_tasks: tasks/lightdm.yml
     - import_tasks: tasks/greetd.yml
-    - import_tasks: tasks/sddm.yml
     - import_tasks: tasks/python.yml
     - import_tasks: tasks/tmux.yml
     - import_tasks: tasks/eww.yml
