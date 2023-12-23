@@ -100,3 +100,10 @@ python:
   - python3-pip
   - pipenv
   - python3-poetry
+emacs:
+  - emacs
+  - texlive-latex-base
+  - texlive-latex-extra
+  - texlive-bibtex-extra
+  - biber
+  - latexmk

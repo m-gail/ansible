@@ -1,0 +1,22 @@
+- name: Setup emacs
+  tags:
+    - emacs
+  block:
+    - name: Install emacs
+      become: true
+      ansible.builtin.package:
+        name: "{{ pkgs.emacs }}"
+        state: present
+    - name: Clone doom emacs
+      ansible.builtin.git:
+        repo: https://github.com/doomemacs/doomemacs
+        dest: "{{ lookup('env', 'HOME') }}/.config/emacs"
+    - name: Install doom emacs
+      shell:
+        cmd: ~/.config/emacs/bin/doom install
+      args:
+        executable: /bin/bash
+    - include: ../lib/dotfiles.yml
+      vars:
+        directories:
+          - doom
