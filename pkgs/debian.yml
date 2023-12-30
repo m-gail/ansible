@@ -107,3 +107,7 @@ emacs:
   - texlive-bibtex-extra
   - biber
   - latexmk
+  - hunspell
+  - hunspell-de-de
+  - hunspell-de-at
+  - hunspell-en-us
