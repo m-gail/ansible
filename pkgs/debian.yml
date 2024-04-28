@@ -105,6 +105,7 @@ emacs:
   - texlive-latex-base
   - texlive-latex-extra
   - texlive-bibtex-extra
+  - texlive-lang-german
   - biber
   - latexmk
   - hunspell
