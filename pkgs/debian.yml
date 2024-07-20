@@ -112,3 +112,5 @@ emacs:
   - hunspell-de-de
   - hunspell-de-at
   - hunspell-en-us
+  - inkscape
+  - dvipng
